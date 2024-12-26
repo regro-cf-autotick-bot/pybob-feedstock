@@ -11,12 +11,12 @@ source:
 
 build:
   noarch: python
-  number: 0
+  number: 1
   script: "{{ PYTHON }} -m pip install . -vv"
 
 requirements:
   host:
-    - python >=3.7
+    - python {{ python_min }}
     - pip
   run:
     - descartes
@@ -30,7 +30,7 @@ requirements:
     - opencv
     - pandas
     - pyproj
-    - python >=3.7
+    - python >={{ python_min }}
     - scikit-image >=0.18
     - scipy
     - shapely
@@ -40,6 +40,7 @@ test:
     - pybob
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: "https://github.com/iamdonovan/pybob"
